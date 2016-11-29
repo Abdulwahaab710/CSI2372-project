@@ -11,9 +11,13 @@
 #include <string>
 
 class Card {
+protected:
+    
+    std::string d_name;
+    
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    //returns the minimum number of cards necessary for the given number of coins
     virtual int getCardsPerCoin(int coins) = 0;
     
     //returns the full name of the card
@@ -21,6 +25,7 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     virtual void print(std::ostream& out) = 0;
+
 };
 
 #endif /* card_h */

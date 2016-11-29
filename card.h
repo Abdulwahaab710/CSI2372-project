@@ -25,6 +25,8 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     virtual void print(std::ostream& out) = 0;
+    
+    virtual ~Card() {}
 
 };
 

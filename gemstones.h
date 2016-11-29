@@ -26,6 +26,8 @@ public:
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
     
+    ~Quartz();
+    
 };
 
 class Hematite: public Card {
@@ -41,6 +43,8 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
+    
+    ~Hematite();
 
 };
 
@@ -57,6 +61,8 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
+    
+    ~Obsidian();
 };
 
 class Malachite: public Card {
@@ -72,6 +78,8 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
+    
+    ~Malachite();
 };
 
 class Turquoise: public Card {
@@ -87,6 +95,8 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
+    
+    ~Turquoise();
 };
 
 class Ruby: public Card {
@@ -102,6 +112,8 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
+    
+    ~Ruby();
 };
 
 class Amethyst: public Card {
@@ -117,6 +129,9 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
+    
+    ~Amethyst();
+
 };
 
 class Emerald: public Card {
@@ -132,6 +147,8 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
+    
+    ~Emerald();
 };
 
 #endif /* gemstones_h */

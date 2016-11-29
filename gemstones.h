@@ -8,12 +8,16 @@
 #ifndef gemstones_h
 #define gemstones_h
 
+#include <iostream>
+#include <vector>
 #include "card.h"
 
 class Quartz: public Card {
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    Quartz();
+    
+    //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
     
     //returns the full name of the card
@@ -27,7 +31,9 @@ public:
 class Hematite: public Card {
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    Hematite();
+    
+    //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
     
     //returns the full name of the card
@@ -35,12 +41,15 @@ public:
     
     //inputs the first character of the card into the output stream supplied as an argument
     void print(std::ostream& out);
+
 };
 
 class Obsidian: public Card {
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    Obsidian();
+    
+    //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
     
     //returns the full name of the card
@@ -53,7 +62,9 @@ public:
 class Malachite: public Card {
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    Malachite();
+    
+    //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
     
     //returns the full name of the card
@@ -66,7 +77,9 @@ public:
 class Turquoise: public Card {
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    Turquoise();
+    
+    //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
     
     //returns the full name of the card
@@ -79,7 +92,9 @@ public:
 class Ruby: public Card {
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    Ruby();
+    
+    //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
     
     //returns the full name of the card
@@ -92,7 +107,9 @@ public:
 class Amethyst: public Card {
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    Amethyst();
+    
+    //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
     
     //returns the full name of the card
@@ -105,7 +122,9 @@ public:
 class Emerald: public Card {
 public:
     
-    //returns the number of cards necessary for the given number of coins
+    Emerald();
+    
+    //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
     
     //returns the full name of the card

@@ -8,6 +8,7 @@
 #ifndef cardfactory_h
 #define cardfactory_h
 
+#include <vector>
 class Deck;
 class Card;
 
@@ -26,19 +27,21 @@ private:
     
     static const int totalCards = quartz + hematite + obsidian + malachite + turquoise + ruby + amethyst + emerald;
     
-    Card* cards[totalCards];
+    std::vector<Card*> cards;
     
     //Constructor must be private as no other classes are allowed to declare an instance of CardFactory
     CardFactory();
-    
     
 public:
     
     //returns a pointer to the only instance of CardFactory
     static CardFactory* getCardFactory();
     
-    //returns a deck with all 104 gemstone cards
-    //Deck getDeck();
+    //returns a shuffled deck with all 104 gemstone cards
+    Deck getDeck();
+    
+    //returns a vector containing pointers to the cards created by the CardFactory (not shuffled)
+    std::vector<Card*> getCards();
     
     //Destructor is public so that the only instance of CardFactory can be deleted whenever needed
     ~CardFactory();

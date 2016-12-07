@@ -19,7 +19,9 @@ public:
     
     //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
-    
+
+    Card* Create();
+
     //returns the full name of the card
     std::string getName();
     
@@ -37,7 +39,9 @@ public:
     
     //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
-    
+
+    Card* Create();
+
     //returns the full name of the card
     std::string getName();
     
@@ -55,7 +59,9 @@ public:
     
     //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
-    
+
+    Card* Create();
+
     //returns the full name of the card
     std::string getName();
     
@@ -72,7 +78,9 @@ public:
     
     //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
-    
+
+    Card* Create();
+
     //returns the full name of the card
     std::string getName();
     
@@ -89,7 +97,9 @@ public:
     
     //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
-    
+
+    Card* Create();
+
     //returns the full name of the card
     std::string getName();
     
@@ -106,7 +116,9 @@ public:
     
     //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
-    
+
+    Card* Create();
+
     //returns the full name of the card
     std::string getName();
     
@@ -123,7 +135,9 @@ public:
     
     //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
-    
+
+    Card* Create();
+
     //returns the full name of the card
     std::string getName();
     
@@ -141,7 +155,9 @@ public:
     
     //returns the minimum number of cards necessary for the given number of coins
     int getCardsPerCoin(int coins);
-    
+
+    static Card* Create();
+
     //returns the full name of the card
     std::string getName();
     

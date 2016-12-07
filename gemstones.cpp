@@ -15,6 +15,7 @@ Quartz::Quartz() {
     d_name = "Quartz";
 }
 
+
 int Quartz::getCardsPerCoin(int coins) {
     
     int minNumCards = 0;
@@ -42,6 +43,8 @@ int Quartz::getCardsPerCoin(int coins) {
     
     return minNumCards;
 }
+
+static Card* Quartz::Create(){ return new Quartz(); }
 
 std::string Quartz::getName() {
     return d_name;
@@ -88,6 +91,8 @@ int Hematite::getCardsPerCoin(int coins) {
     return minNumCards;
 }
 
+static Card* Hematite::Create(){ return new Hematite(); }
+
 std::string Hematite::getName() {
     return d_name;
 }
@@ -132,6 +137,8 @@ int Obsidian::getCardsPerCoin(int coins) {
     
     return minNumCards;
 }
+
+static Card* Obsidian::Create(){ return new Obsidian(); }
 
 std::string Obsidian::getName() {
     return d_name;
@@ -178,6 +185,8 @@ int Malachite::getCardsPerCoin(int coins) {
     return minNumCards;
 }
 
+static Card* Malachite::Create(){ return new Malachite(); }
+
 std::string Malachite::getName() {
     return d_name;
 }
@@ -222,6 +231,8 @@ int Turquoise::getCardsPerCoin(int coins) {
     
     return minNumCards;
 }
+
+static Card* Turquoise::Create(){ return new Turquoise(); }
 
 std::string Turquoise::getName() {
     return d_name;
@@ -268,6 +279,8 @@ int Ruby::getCardsPerCoin(int coins) {
     return minNumCards;
 }
 
+static Card* Ruby::Create(){ return new Ruby(); }
+
 std::string Ruby::getName() {
     return d_name;
 }
@@ -313,6 +326,8 @@ int Amethyst::getCardsPerCoin(int coins) {
     return minNumCards;
 }
 
+static Card* Amethyst::Create(){ return new Amethyst(); }
+
 std::string Amethyst::getName() {
     return d_name;
 }
@@ -351,6 +366,8 @@ int Emerald::getCardsPerCoin(int coins) {
     
     return minNumCards;
 }
+
+static Card* Emerald::Create(){ return new Emerald(); }
 
 std::string Emerald::getName() {
     return d_name;

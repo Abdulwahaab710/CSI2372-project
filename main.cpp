@@ -10,6 +10,7 @@
 #include "cardFactory.h"
 #include "deck.h"
 #include "discard_pile.h"
+#include "cardfactory.h"
 
 using namespace std;
 

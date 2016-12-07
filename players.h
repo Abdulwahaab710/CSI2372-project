@@ -10,15 +10,18 @@
 
 //#include "chain_base.h"
 #include "cardfactory.h"
+#include "chain.h"
 #include <string>
 
 using std::string;
 
 class Player {
-    
+    int coins;
+    Chain chain;
+    string player_name;    
 public:
     
-    Player(std::istream&, CardFactory*);
+    Player(std::istream& in, CardFactory*);
     
     Player(std::string&);
     
@@ -38,7 +41,7 @@ public:
     int getNumChains();
     
     //returns the chain at position i
-    //Chain_Base& operator[](int i);
+    Chain_Base& operator[](int i);
     
     //adds an empty third chain to the player for TWO OR THREE coins !!!DOUBLE CHECK WITH PROF!!!
     //if the player does not have enough coins, a NotEnoughCoins exception should be thrown
@@ -47,10 +50,6 @@ public:
     //if bool = false -> print top card of player's hand
     //if bool = true -> print all of the cards in the player's hand
     void printHand(std::ostream&, bool);
-    
-    
-    
-    
     
 };
 

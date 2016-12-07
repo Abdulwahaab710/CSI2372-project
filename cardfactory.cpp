@@ -80,3 +80,43 @@ void CardFactory::printCards() {
     }
 }
 
+Card CardFactory::generateNewCard(string &name) {
+    Card card{nullptr};
+    char cardLetter = name[0];
+    switch(cardLetter) {
+        case 'Q':
+            Quartz* q = Quartz::Create();
+            card = q;
+            break;
+        case 'H':
+            Hematite* h = Hematite::Create();
+            card = h;
+            break;
+        case 'O':
+            Obsidian* o = Obsidian::Create();
+            card = o;
+            break;
+        case 'M':
+            Malachite* m = Malachite::Create();
+            card = m;
+            break;
+        case 'T':
+            Turquoise* t = Turquoise::Create();
+            card = t;
+            break;
+        case 'R':
+            Ruby* r = new Ruby();
+            card = r;
+            break;
+        case 'A':
+            Amethyst* a = Amethyst::Create();
+            card = a;
+            break;
+        case 'E':
+            Emerald* e = Emerald::Create();
+            card = e;
+            break;
+    }
+        return card;
+}
+

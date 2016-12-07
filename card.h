@@ -12,7 +12,7 @@
 
 class Card {
 protected:
-    
+
     std::string d_name;
     
 public:
@@ -28,6 +28,7 @@ public:
     
     virtual ~Card() {}
 
+    Card(void *pVoid) {}
 };
 
 #endif /* card_h */

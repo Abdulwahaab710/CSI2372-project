@@ -8,7 +8,9 @@
 #ifndef cardfactory_h
 #define cardfactory_h
 
+#include <string>
 #include <vector>
+using std::string;
 class Deck;
 class Card;
 
@@ -45,9 +47,9 @@ public:
     
     //Destructor is public so that the only instance of CardFactory can be deleted whenever needed
     ~CardFactory();
-    
+    Card generateNewCard(string& name);
+
     void printCards();
-};
 
 #endif /* cardfactory_h */
 

@@ -7,58 +7,50 @@
 
 #include "cardfactory.h"
 #include "gemstones.h"
+#include "deck.h"
 
 //constructor methods that generates all 104 gemstone cards
 CardFactory::CardFactory() {
     
-    int c = 0;
     
     //create quartz cards
     for (int q = 0; q < quartz; ++q) {
-        cards[c] = new Quartz;
-        c++;
+        cards.push_back(new Quartz);
     }
     
     //create hematite cards
     for (int h = 0; h < hematite; ++h) {
-        cards[c] = new Hematite;
-        c++;
+        cards.push_back(new Hematite);
     }
     
     //create obsidian cards
     for (int o = 0; o < obsidian; ++o) {
-        cards[c] = new Obsidian;
-        c++;
+        cards.push_back(new Obsidian);
     }
     
     //create malachite cards
     for (int m = 0; m < malachite; ++m) {
-        cards[c] = new Malachite;
-        c++;
+        cards.push_back(new Malachite);
     }
     
     //create turquoise cards
     for (int t = 0; t < turquoise; ++t) {
-        cards[c] = new Turquoise;
-        c++;
+        cards.push_back(new Turquoise);
     }
     
     //create ruby cards
     for (int r = 0; r < ruby; ++r) {
-        cards[c] = new Ruby;
-        c++;
+        cards.push_back(new Ruby);
     }
     
     //create amethyst cards
     for (int a = 0; a < amethyst; ++a) {
-        cards[c] = new Amethyst;
-        c++;
+        cards.push_back(new Amethyst);
     }
     
     //create emerald cards
     for (int e = 0; e < emerald; ++e) {
-        cards[c] = new Emerald;
-        c++;
+        cards.push_back(new Emerald);
     }
 }
 
@@ -73,9 +65,18 @@ CardFactory::~CardFactory() {
     }
 }
 
+Deck CardFactory::getDeck() {
+    Deck d(this);
+    return d;
+}
+
+std::vector<Card*> CardFactory::getCards() {
+    return cards;
+}
+
 void CardFactory::printCards() {
     for (int i = 0; i < totalCards; ++i) {
-        std::cout << i << ")" << cards[i]->getName() << std::endl;
+        std::cout << cards[i]->getName() << " ";
     }
 }
 

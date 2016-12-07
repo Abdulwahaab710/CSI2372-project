@@ -17,7 +17,11 @@ using std::vector;
 class DiscardPile {
 private:
     std::vector<Card*> d_cards;
+    
 public:
+    
+    DiscardPile();
+    
     DiscardPile(std::istream&, CardFactory*);
     
     //discards a card to the pile

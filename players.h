@@ -12,13 +12,17 @@
 #include "cardfactory.h"
 #include "chain.h"
 #include <string>
+#include <vector>
 
 using std::string;
 
+
 class Player {
-    int coins;
-    Chain chain;
-    string player_name;    
+    int coins,
+        d_currentChain=0,
+        d_maxChains;
+    vector<*Chain_Base> d_chain;
+    string d_name;
 public:
     
     Player(std::istream& in, CardFactory*);

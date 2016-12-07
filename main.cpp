@@ -14,7 +14,7 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    
+
     CardFactory* factory = CardFactory::getCardFactory();
     Deck d = factory->getDeck();
     cout << "\nShuffled deck:" << endl;

@@ -12,13 +12,22 @@
 #include "cardfactory.h"
 #include "chain.h"
 #include <string>
+#include <vector>
+#include <exception>
 
 using std::string;
 
+class NotEnoughCoins: public exception{
+    virtual const char* what() const throw(){
+        return "You don't have enough coins to buy a thrid chain";
+    }
+};
 class Player {
-    int coins;
-    Chain chain;
-    string player_name;    
+    int coins,
+        d_currentChain=0,
+        d_maxChains;
+    vector<*Chain_Base> d_chain;
+    string d_name;
 public:
     
     Player(std::istream& in, CardFactory*);

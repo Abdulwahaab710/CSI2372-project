@@ -10,8 +10,10 @@
 
 #include "card.h"
 #include "cardfactory.h"
+#include <vector>
 
 class Hand {
+    std::vector<Card*> d_cards;
 public:
     
     Hand(std::istream&, CardFactory*);

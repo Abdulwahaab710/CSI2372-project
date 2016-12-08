@@ -71,10 +71,6 @@ void Player::printHand(std::ostream& out, bool flag){
     else {
         d_hand.top()->print(out);
     }
-    
-    /*
-    
-     */
 }
 
 void Player::operator<<(std::ostream& out){

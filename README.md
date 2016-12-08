@@ -14,8 +14,8 @@ This repo is for the CSI2372 project
 - [ ] hand.h
 - [ ] hand.cpp
 - [ ] main.cpp
-- [ ] players.h
-- [ ] players.cpp
+- [X] players.h
+- [X] players.cpp
 - [ ] table.h
 - [ ] table.cpp
 - [ ] trade_area.h

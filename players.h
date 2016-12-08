@@ -14,25 +14,25 @@
 #include <string>
 #include <vector>
 #include <exception>
+#include "hand.h"
 
 using std::string;
 
-class NotEnoughCoins: public exception{
+class NotEnoughCoins: public std::exception{
     virtual const char* what() const throw(){
-        return "You don't have enough coins to buy a thrid chain";
+        return "You do not have enough coins to buy a third chain";
     }
 };
 class Player {
-    int coins,
-        d_currentChain=0,
-        d_maxChains;
-    vector<*Chain_Base> d_chain;
+    int coins, d_currentChain=0,d_maxChains;
+    std::vector<Chain_Base>* d_chain;
     string d_name;
+    Hand d_hand;
 public:
     
     Player(std::istream& in, CardFactory*);
     
-    Player(std::string&);
+    Player(std::string&, Hand&);
     
     //returns the name of the player
     std::string getName();
@@ -52,13 +52,15 @@ public:
     //returns the chain at position i
     Chain_Base& operator[](int i);
     
-    //adds an empty third chain to the player for TWO OR THREE coins !!!DOUBLE CHECK WITH PROF!!!
+    //adds an empty third chain to the player for three coins
     //if the player does not have enough coins, a NotEnoughCoins exception should be thrown
     void buyThirdChain();
     
     //if bool = false -> print top card of player's hand
     //if bool = true -> print all of the cards in the player's hand
     void printHand(std::ostream&, bool);
+    
+    void operator<<(std::ostream& out);
     
 };
 

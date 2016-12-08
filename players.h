@@ -13,10 +13,15 @@
 #include "chain.h"
 #include <string>
 #include <vector>
+#include <exception>
 
 using std::string;
 
-
+class NotEnoughCoins: public exception{
+    virtual const char* what() const throw(){
+        return "You don't have enough coins to buy a thrid chain";
+    }
+};
 class Player {
     int coins,
         d_currentChain=0,

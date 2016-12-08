@@ -48,12 +48,26 @@ Chain_Base& Player::operator[](int i){
 //adds an empty third chain to the player for TWO OR THREE coins !!!DOUBLE CHECK WITH PROF!!!
 //if the player does not have enough coins, a NotEnoughCoins exception should be thrown
 void Player::buyThirdChain(){
-    
+    if (d_chain > 1 && d_chain != 3){
+       if(coins > 2){
+          throw new NotEnoughCoins;
+       } else{
+          d_maxChains++;
+          coins -= 2;
+       }
+    }
 }
 
 //if bool = false -> print top card of player's hand
 //if bool = true -> print all of the cards in the player's hand
-void Player::printHand(std::ostream&, bool){
-    
+void Player::printHand(std::ostream& o, bool b){
+   o << d_name << "\t" << coins << (coins > 2 ) ? "coins\n" : "coin\n";
+   if (b){
+      o << d_chain[0];
+   } else{
+      for (auto& c : d_chain) {
+         o << c;
+      }
+   }
 }
  

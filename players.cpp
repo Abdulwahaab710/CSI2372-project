@@ -12,18 +12,22 @@ Player::Player(std::istream& in, CardFactory*){
     in >> d_name;
 }
 
+Player::Player(){
+
+}
+
 Player::Player(std::string& name, Hand& hand){
     d_name = name;
     d_hand = hand;
 }
 
 //returns the name of the player
-std::string Player::getName(){
+std::string Player::getName() const{
     return d_name;
 }
 
 //returns the number of coins held by the player
-int Player::getCoins(){
+int Player::getCoins() const{
     return coins;
 }
 
@@ -34,12 +38,12 @@ Player& Player::operator+=(int _coins){
 }
 
 //returns the number of chains possessed by the player (either 2 or 3)
-int Player::getMaxNumChains(){
+int Player::getMaxNumChains() const{
     return d_maxChains;
 }
 
 //returns the non-zero chains
-int Player::getNumChains(){
+int Player::getNumChains() const{
     return d_currentChain;
 }
 
@@ -58,23 +62,22 @@ void Player::buyThirdChain(){
             d_maxChains++;
             coins -= 3;
         }
+    } else {
+        throw new ReachedMaxChain;
     }
 }
 
 //if flag = false -> print top card of player's hand
 //if flag = true -> print all of the cards in the player's hand
 void Player::printHand(std::ostream& out, bool flag){
-    
     if (flag) {
         d_hand.print(out);
     }
     else {
         d_hand.top()->print(out);
     }
+    
+    /*
+    
+     */
 }
-
-void Player::operator<<(std::ostream& out){
-    out << d_name << "\t" << coins << ((coins > 2 ) ? "coins\n" : "coin\n");
-    d_hand.print(out);
-}
-

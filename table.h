@@ -14,6 +14,7 @@
 #include "discard_pile.h"
 #include "trade_area.h"
 #include "cardfactory.h"
+#include <iostream>
 
 using std::string;
 

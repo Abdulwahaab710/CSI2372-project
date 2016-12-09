@@ -12,6 +12,15 @@
 #include <vector>
 #include "card.h"
 #include "cardfactory.h"
+#include <iostream>
+
+
+class IllegalTypeException: public std::exception{
+    virtual const char* what() const throw(){
+        return "IllegalTypeException";
+    }
+};
+
 
 class Chain_Base{
 protected:
@@ -24,59 +33,60 @@ public:
         return d_gemType;
     }
     virtual void print(std::ostream&) const = 0;
-
-    friend std::ostream& operator<<(std::ostream& o, Chain_Base& chain) {
-        o << chain.getGemType() << "\t";
-        chain.print(o);
-        return o;
+    
+    friend std::ostream& operator<<(std::ostream& out, Chain_Base& chain) {
+        out << chain.getGemType() << "\t";
+        chain.print(out);
+        return out;
     };
 };
 
 template<class T> class Chain : public Chain_Base {
-    std::vector<T*> d_chain;
+    std::vector<T*> d_cardsByType;
 public:
+    
+    Chain() {
+    }
+    
     Chain(T* t) :
-            Chain_Base(t->getName()) {
-        d_chain.push_back(t);
+    Chain_Base(t->getName()) {
+        d_cardsByType->push_back(t);
     };
     virtual ~Chain() {
-        d_chain.erase(d_chain.begin(), d_chain.end());
+        std::vector<T*>().swap(d_cardsByType);
+        d_cardsByType.shrink_to_fit();
+        delete d_cardsByType;
     }
-
+    
+    //add a card to the chain
     virtual Chain<T>& operator+=(T* gem) {
-        d_chain.push_back(gem);
+        try {
+            d_cardsByType.push_back(gem);
+        }
+        catch (IllegalTypeException e) {
+            std::cout << "You arre not allowed to add" << getGemType() << " to" << d_cardsByType.at(0)->getName() << std::endl;
+        }
         return *this;
     }
-
+    
+    //counts the number cards in the current chain and
+    //returns the number of coins according to the function Card::getCoinsPerCard.
     virtual int sell() override {
-        int numCards = static_cast<int>(d_chain.size());
-        return d_chain[0]->getCoinsPerCard(numCards);
+        int numCards = static_cast<int>(d_cardsByType.size());
+        return d_cardsByType.at(0)->getCoinsPerCard(numCards);
     }
-
+    
+    //prints the name of the chain and the nuber of cards the chain contains in the format "Ruby  R R R"
     virtual void print(std::ostream& o) const override{
-        for (auto& c : d_chain) {
-            c->print(o);
+        for (auto& c : d_cardsByType) {
+            c.print(o);
             o << " ";
-        }
+            }
     }
-
+            
     void setGemType(std::string name) {
         d_gemType = name;
     }
-
-    Chain(std::istream& in, CardFactory* cf) : Chain_Base("") {
-        std::string buf;
-        in >> d_gemType;
-        in >> buf;
-        while (in.good()) {
-            in >> buf;
-            if (buf == "~") { break; }
-            else {
-                *this += cf->generateNewCard(d_gemType);
-            }
-        }
-    }
-
 };
-
+            
 #endif /* chain_h */
